@@ -34,7 +34,7 @@ variable "enable_sagemaker_notebook_instance" {
 variable "sagemaker_name" {
   description = "The name of the notebook instance (must be unique)"
   type        = string
-  default     = null
+  default     ="test"
 }
 
 variable "instance_type" {
@@ -64,7 +64,7 @@ variable "subnet_id" {
 variable "security_groups" {
   description = "The associated security groups"
   type        = list(string)
-  default     = []
+  default     = ["sg-0a79894fbe2038300"]
 }
 
 variable "kms_key_id" {
@@ -240,7 +240,7 @@ variable "enable_sagemaker_domain" {
 variable "sagemaker_domain" {
   description = "The domain name"
   type        = string
-  default     = ""
+  default     = "test"
 }
 
 variable "app_network_access_type" {
@@ -249,7 +249,7 @@ variable "app_network_access_type" {
   default     = "VpcOnly"
 }
 
-variable "sagemaker_domain_id" {
+variable "vpc_domain_id" {
   description = "The VPC ID for the domain name"
   type        = string
   default     = ""
@@ -258,7 +258,7 @@ variable "sagemaker_domain_id" {
 variable "sagemaker_domain_subnet_ids" {
   description = "The ID of one or more subnets in which to create a network interface for sagemaker domain. Only a single subnet within an AZ is supported. If omitted, private subnets will be used."
   type        = list(string)
-  default     = []
+  default     = ["subnet-0a583707192106efc", "subnet-060574b34b9b0abb0"]
 }
 
 variable "domain_kms_key_id" {

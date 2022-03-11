@@ -77,15 +77,15 @@ output "sagemaker_model_arn" {
 
 output "sagemaker_domain_id" {
   description = "The ID of the domain"
-  value       = element(concat(aws_sagemaker_domain.sagemaker_domain.*.id, [""]), 0)
+  value       = element(concat(aws_sagemaker_domain.domain.*.id, [""]), 0)
 }
 
 output "sagemaker_domain_url" {
   description = "The domain's URL"
-  value       = element(concat(aws_sagemaker_domain.sagemaker_domain.*.url, [""]), 0)
+  value       = element(concat(aws_sagemaker_domain.domain.*.url, [""]), 0)
 }
 
 output "sagemaker_domain_arn" {
   description = "The Amazon Resource Name (ARN) assigned by AWS to this domain"
-  value       = element(concat(aws_sagemaker_domain.sagemaker_domain.*.arn, [""]), 0)
+  value       = element(concat(aws_sagemaker_domain.domain.*.arn, [""]), 0)
 }
