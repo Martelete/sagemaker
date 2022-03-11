@@ -246,6 +246,23 @@ variable "sagemaker_domain" {
 variable "app_network_access_type" {
   description = "Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly. Valid values are PublicInternetOnly and VpcOnly"
   type        = string
+  default     = "VpcOnly"
+}
+
+variable "sagemaker_domain_id" {
+  description = "The VPC ID for the domain name"
+  type        = string
   default     = ""
 }
 
+variable "sagemaker_domain_subnet_ids" {
+  description = "The ID of one or more subnets in which to create a network interface for sagemaker domain. Only a single subnet within an AZ is supported. If omitted, private subnets will be used."
+  type        = list(string)
+  default     = []
+}
+
+variable "domain_kms_key_id" {
+  description = "The AWS Key Management Service (AWS sagemaker) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption."
+  type        = string
+  default     = ""
+}

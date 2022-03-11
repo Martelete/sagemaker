@@ -107,6 +107,14 @@ module "sagemaker" {
 
   tags = module.tags.tags
 
+  ## In case you are using SageMaker domain
+  enable_sagemaker_domain       = true #### Default is set to false
+  sagemaker_domain              = local.sagemaker_name
+  vpc_domain_id                 = local.vpc_id
+  sagemaker_domain_subnet_ids   = local.subnet_ids
+  # domain_kms_key_id             = local.kms_key_id 
+
+
   ##
   ## VPC ENDPOINT
   ##
