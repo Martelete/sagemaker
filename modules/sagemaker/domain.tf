@@ -9,9 +9,9 @@ resource "aws_sagemaker_domain" "domain" {
 
   name                    = var.sagemaker_domain != "" ? lower(var.sagemaker_domain) : "${lower(var.sagemaker_domain)}-sagemaker-domain"
   auth_mode               = "IAM"
-  vpc_id                  = var.vpc_id
-  subnet_ids              = [var.subnet_id]
-  kms_key_id              = var.kms_key_id
+  vpc_id                  = var.vpc_domain_id
+  subnet_ids              = [var.sagemaker_domain_subnet_ids]
+  kms_key_id              = var.domain_kms_key_id
   app_network_access_type = var.app_network_access_type
 
   tags = merge({ Name = var.sagemaker_domain }, var.tags)
